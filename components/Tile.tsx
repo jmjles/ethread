@@ -2,22 +2,17 @@ import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Icon, Text } from "react-native-paper";
 
-const Tile = ({
-  title = "title",
-  subtitle = "subtitle",
-  img = "https://picsum.photos/300",
-  topic = "topic",
-  topics = true,
-  onPress = () => {},
-}: Props) => {
+const Tile = ({ title, subtitle, img, topic, topics, onPress }: Props) => {
   return (
     <TouchableOpacity style={styles.container} {...onPress}>
       <Image source={{ uri: img }} style={styles.img} />
       <View style={styles.content}>
-        <Text variant="titleLarge" style={styles.title}>
+        <Text variant="titleLarge" ellipsizeMode="tail" numberOfLines={1} style={styles.title}>
           {title}
         </Text>
-        <Text variant="titleMedium">{subtitle}</Text>
+        <Text variant="titleMedium" ellipsizeMode="tail" numberOfLines={1}>
+          {subtitle}
+        </Text>
         <View style={styles.tagContainer}>
           <View style={styles.icon}>
             <Icon size={24} color="black" source="bullhorn-outline" />
@@ -48,6 +43,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 120,
     left: 20,
+    width:260,
+    overflow: "hidden",
   },
   title: {
     fontWeight: "600",
