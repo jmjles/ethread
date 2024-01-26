@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Divider, PaperProvider } from "react-native-paper";
+import { Button, Divider, PaperProvider, Text } from "react-native-paper";
 import MainLayout from "./layout/main/MainLayout";
 import { useState } from "react";
-import TileCarousel from "./components/TileCarousel";
-import Post from "./layout/components/post/Post";
+import TileCarousel from "./components/tile/TileCarousel";
+import Post from "./components/post/Post";
 import { View } from "react-native";
 import { Threads } from "./utils/dumbydata";
 
@@ -15,13 +15,16 @@ export default function App() {
       <MainLayout {...{ value: query, onChangeText: handleQuery }}>
         <View>
           <TileCarousel />
+          <Button mode="contained">
+            <Text variant="bodyMedium">Create a Post</Text>
+          </Button>
           {Threads.map((t, i) => (
-            <>
+            <View key={i}>
               <Post {...t} />
               {Threads.length !== i + 1 && (
                 <Divider style={{ maxWidth: 800 }} />
               )}
-            </>
+            </View>
           ))}
         </View>
       </MainLayout>

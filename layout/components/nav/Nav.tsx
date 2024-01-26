@@ -64,7 +64,7 @@ const Nav = () => {
       ))}
       <Divider />
       {categories.map((c, i) => (
-        <NavCollapseItem {...c} id={i} />
+        <NavCollapseItem {...c} id={i} key={i} />
       ))}
     </List.Section>
   );

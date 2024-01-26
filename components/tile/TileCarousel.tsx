@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import Carousel from "react-native-snap-carousel";
-import { threadPosts } from "../utils/dumbydata";
+import { threadPosts } from "../../utils/dumbydata";
 import Tile from "./Tile";
 import { useEffect, useRef, useState } from "react";
 import { FAB } from "react-native-paper";
