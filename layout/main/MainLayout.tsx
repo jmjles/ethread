@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: "auto",
     marginRight: "auto",
+    overflow: "hidden",
   },
 });
 type Props = React.PropsWithChildren & SearchbarProps;

@@ -32,6 +32,7 @@ const FeaturedTiles = () => {
         containerCustomStyle={{ flexGrow: 0 }}
         activeSlideAlignment="start"
         activeSlideOffset={1}
+        inactiveSlideOpacity={1}
         ref={carousel}
         renderItem={({ item }) => <Tile {...item} onPress={() => {}} />}
       />
