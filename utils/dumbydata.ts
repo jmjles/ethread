@@ -1,3 +1,5 @@
+import { PostProps } from "layout/components/post/Post";
+
 export const threadPosts = [
   {
     title: "Exploring the Unknown",
@@ -68,5 +70,92 @@ export const threadPosts = [
     img: "https://picsum.photos/seed/Cosmic+Wonders/300",
     topic: "Astronomy and Space",
     topics: true,
+  },
+];
+
+export const Threads: PostProps[] = [
+  {
+    user: {
+      id: "1",
+      avatar: "tech-avatar.jpg",
+      displayName: "TechGeek",
+      following: true,
+    },
+    title: "Exciting Advances in Artificial Intelligence",
+    content:
+      "Explore the latest breakthroughs in artificial intelligence, delving into their profound impact on diverse industries. Engage in discussions on evolving AI technologies, applications, and their implications for the future. Share your insights and learn from fellow enthusiasts passionate about the ever-expanding realm of technology.",
+    type: "thread",
+    topic: "Technology",
+    date: "2024-01-25",
+  },
+  {
+    user: {
+      id: "2",
+      avatar: "book-club-avatar.jpg",
+      displayName: "BookWorm",
+      following: true,
+    },
+    title: "Book Recommendations for February",
+    content:
+      "Calling all book lovers! Share and discover captivating reads for February. Provide detailed insights into your favorite novels, highlighting plot twists, character developments, and the emotions they evoke. Let's create a vibrant community where literary enthusiasts can connect, recommend, and immerse themselves in the world of books.",
+    type: "thread",
+    topic: "Books",
+    date: "2024-01-25",
+  },
+  {
+    user: {
+      id: "3",
+      avatar: "fitness-avatar.jpg",
+      displayName: "FitLife",
+      following: true,
+    },
+    title: "Weekly Fitness Challenge - Join Us!",
+    content:
+      "Embark on a fitness journey with our weekly challenges! Share your workout routines, healthy recipes, and personal achievements. Encourage fellow members in their pursuit of a healthier lifestyle. Together, let's build a supportive community that inspires and motivates each other to stay active and prioritize well-being.",
+    type: "thread",
+    topic: "Fitness",
+    date: "2024-01-25",
+  },
+  {
+    user: {
+      id: "4",
+      avatar: "travel-avatar.jpg",
+      displayName: "Wanderlust",
+      following: true,
+    },
+    title: "Hidden Gems Around the World",
+    content:
+      "Uncover hidden gems and off-the-beaten-path destinations worldwide. Share your travel tales, insider tips, and breathtaking photos. From quaint villages to scenic landscapes, let's celebrate the beauty of exploration. Connect with fellow adventurers, exchange recommendations, and embark on a virtual journey to discover the wonders of our diverse planet.",
+    type: "thread",
+    topic: "Travel",
+    date: "2024-01-25",
+  },
+  {
+    user: {
+      id: "5",
+      avatar: "music-avatar.jpg",
+      displayName: "MelodyMaster",
+      following: true,
+    },
+    title: "Favorite Albums of the Decade",
+    content:
+      "Dive into the world of music and reminisce about the past decade's iconic albums. Share your personal favorites, discuss the evolution of genres, and explore the impact of these musical masterpieces. Whether it's rock, pop, or indie, let's create a symphony of discussions around the albums that have left a lasting imprint on our hearts.",
+    type: "thread",
+    topic: "Music",
+    date: "2024-01-25",
+  },
+  {
+    user: {
+      id: "6",
+      avatar: "gaming-avatar.jpg",
+      displayName: "GameGuru",
+      following: true,
+    },
+    title: "Upcoming Game Releases and Predictions",
+    content:
+      "Gear up for an exciting discussion on the gaming horizon! Explore upcoming game releases, share insights on anticipated titles, and make predictions about the future of the gaming industry. Whether you're a seasoned gamer or a casual player, join us in forecasting the next big hits and unraveling the mysteries of the gaming universe.",
+    type: "thread",
+    topic: "Gaming",
+    date: "2024-01-25",
   },
 ];
