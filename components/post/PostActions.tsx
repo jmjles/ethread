@@ -1,3 +1,4 @@
+import Container from "components/Container";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Icon, SegmentedButtons, Text } from "react-native-paper";
@@ -47,7 +48,7 @@ const PostActions = () => {
   const handleComment = () => {};
 
   return (
-    <View style={styles.container}>
+    <Container noFlex style={styles.container}>
       <SegmentedButtons
         onValueChange={(v) => handleVote(v === "upvote")}
         value={upVote ? "upvote" : upVote === null ? "" : "downvote"}
@@ -83,7 +84,7 @@ const PostActions = () => {
           </Text>
         </View>
       </Button>
-    </View>
+    </Container>
   );
 };
 const styles = StyleSheet.create({
@@ -91,8 +92,6 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   container: {
-    display: "flex",
-    flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
   },

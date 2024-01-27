@@ -1,23 +1,21 @@
+import Container from "components/Container";
 import Search from "../components/Search";
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, SearchbarProps, Surface } from "react-native-paper";
+import { StyleSheet } from "react-native";
+import { Button, SearchbarProps } from "react-native-paper";
 
 const Header = (props: SearchbarProps) => {
   return (
-    <Surface elevation={0} style={styles.container}>
-      <View />
+    <Container style={styles.container} noFlex>
       <Search {...props} />
       <Button mode="contained">Log in</Button>
-    </Surface>
+    </Container>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
     justifyContent: "space-between",
     flexWrap: "nowrap",
-    flexDirection: "row",
     alignItems: "center",
   },
 });

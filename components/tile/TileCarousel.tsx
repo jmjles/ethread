@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
     top: "50%",
     transform: "translateY(-50%)",
   },
-  container: { position: "relative", height: 210 },
+  container: { position: "relative", height: 210, maxWidth:1000 },
 });
 export default FeaturedTiles;

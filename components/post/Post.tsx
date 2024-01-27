@@ -5,21 +5,22 @@ import ThreadHeader from "./ThreadHeader";
 import PostActions from "./PostActions";
 import { StyleSheet, View } from "react-native";
 import { PostUser } from "./types";
+import Container from "components/Container";
 
 const Post = ({ title, content, user, topic, date, type }: PostProps) => {
   return (
-    <Surface style={styles.container} elevation={0}>
+    <Container flexDir="column" style={styles.container}>
       {type === "thread" ? (
         <ThreadHeader user={user} topic={topic} date={date} />
       ) : (
         <CommentHeader user={user} date={date} />
       )}
-      <View style={styles.contentContainer}>
+      <Container noFlex flexDir="column" style={styles.contentContainer}>
         <Text variant="headlineMedium">{title}</Text>
         <Text variant="bodyLarge">{content}</Text>
-      </View>
+      </Container>
       <PostActions />
-    </Surface>
+    </Container>
   );
 };
 
@@ -36,11 +37,11 @@ export type PostProps = {
 const styles = StyleSheet.create({
   container: {
     padding: 12,
-    flex: 1,
-    maxWidth: 800,
+    flexWrap: "nowrap",
   },
   contentContainer: {
     padding: 12,
+    flex: 1,
   },
 });
 export default Post;

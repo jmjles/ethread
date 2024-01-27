@@ -2,26 +2,24 @@ import { StyleSheet, View } from "react-native";
 import Header from "./Header";
 import Nav from "../components/nav/Nav";
 import { SearchbarProps } from "react-native-paper";
+import Container from "components/Container";
 
 const MainLayout = (props: Props) => {
   return (
-    <View style={styles.mainContainer}>
+    <Container flexDir="column" style={styles.mainContainer}>
       <Header {...props} />
-      <View style={styles.container}>
+      <Container>
         <Nav />
         {props.children}
-      </View>
-    </View>
+      </Container>
+    </Container>
   );
 };
 const styles = StyleSheet.create({
-  container: { display: "flex", flexDirection: "row" },
   mainContainer: {
-    maxWidth: 1400,
-    flex: 1,
     marginLeft: "auto",
     marginRight: "auto",
-    overflow: "hidden",
+    maxWidth: 1400,
   },
 });
 type Props = React.PropsWithChildren & SearchbarProps;

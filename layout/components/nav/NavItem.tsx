@@ -1,8 +1,11 @@
+import { router } from "expo-router";
 import React from "react";
 import { Drawer, List } from "react-native-paper";
 
 const NavItem = ({ title, icon, link }: NavItemProps) => {
-  const handlePress = () => {};
+  const handlePress = () => {
+    router.navigate(!link ? "/" : link);
+  };
   return (
     <List.Item
       title={title}
