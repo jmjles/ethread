@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import { threadPosts } from "../../utils/dumbydata";
 import Tile from "./Tile";
@@ -7,6 +7,14 @@ import { FAB } from "react-native-paper";
 
 const FeaturedTiles = () => {
   const [active, setActive] = useState(0);
+  const [sliderWidth, setSliderWidth] = useState(0);
+  Dimensions.addEventListener("change", ({ window: { width } }) => {
+    if (width >= 1400) {
+      setSliderWidth(1217);
+    } else {
+      setSliderWidth(width - 182);
+    }
+  });
   const carousel = useRef<any>();
   const handleNav = (next: boolean) => {
     if (next) {
@@ -16,7 +24,6 @@ const FeaturedTiles = () => {
     }
   };
   useEffect(() => {
-    console.log(carousel.current.currentIndex);
     carousel.current.snapToItem(active);
   }, [active]);
   return (
@@ -24,14 +31,12 @@ const FeaturedTiles = () => {
       <Carousel
         layout="default"
         data={threadPosts}
-        sliderWidth={1000}
+        sliderWidth={sliderWidth}
         itemWidth={280}
         enableSnap={true}
         vertical={false}
         scrollEnabled={false}
-        containerCustomStyle={{ flexGrow: 0 }}
         activeSlideAlignment="start"
-        activeSlideOffset={1}
         inactiveSlideOpacity={1}
         ref={carousel}
         renderItem={({ item }) => <Tile {...item} onPress={() => {}} />}
@@ -64,6 +69,6 @@ const styles = StyleSheet.create({
     top: "50%",
     transform: "translateY(-50%)",
   },
-  container: { position: "relative", height: 210, maxWidth:1000 },
+  container: { position: "relative", height: 210 },
 });
 export default FeaturedTiles;
