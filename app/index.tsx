@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, Divider, PaperProvider, Text } from "react-native-paper";
-import MainLayout from "./layout/main/MainLayout";
+import MainLayout from "../layout/main/MainLayout";
 import { useState } from "react";
-import TileCarousel from "./components/tile/TileCarousel";
-import Post from "./components/post/Post";
+import TileCarousel from "../components/tile/TileCarousel";
+import Post from "../components/post/Post";
 import { View } from "react-native";
-import { Threads } from "./utils/dumbydata";
+import { Threads } from "../utils/dumbydata";
 
 export default function App() {
   const [query, setQuery] = useState("");
