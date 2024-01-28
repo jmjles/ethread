@@ -10,7 +10,7 @@ const CommunityList = ({ communities, width }: CommunityListProps) => {
       <List.Section>
         <List.Subheader>Popular Communities</List.Subheader>
         {communities.map((c) => (
-          <Community {...c} />
+          <Community {...c} key={c.id} />
         ))}
       </List.Section>
     </Container>
