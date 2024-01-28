@@ -7,14 +7,15 @@ import { FAB } from "react-native-paper";
 
 const FeaturedTiles = () => {
   const [active, setActive] = useState(0);
-  const [sliderWidth, setSliderWidth] = useState(0);
+
+  const getWidth = (width: number) => (width >= 1400 ? 1217 : width - 182);
+  const { width } = Dimensions.get("window");
+
+  const [sliderWidth, setSliderWidth] = useState(getWidth(width));
   Dimensions.addEventListener("change", ({ window: { width } }) => {
-    if (width >= 1400) {
-      setSliderWidth(1217);
-    } else {
-      setSliderWidth(width - 182);
-    }
+    setSliderWidth(getWidth(width));
   });
+  
   const carousel = useRef<any>();
   const handleNav = (next: boolean) => {
     if (next) {

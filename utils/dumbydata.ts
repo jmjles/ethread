@@ -1,4 +1,5 @@
-import { PostProps } from "layout/components/post/Post";
+import { CommunityProps } from "components/community/Community";
+import { PostProps } from "components/post/Post";
 
 export const threadPosts = [
   {
@@ -157,5 +158,58 @@ export const Threads: PostProps[] = [
     type: "thread",
     topic: "Gaming",
     date: "2024-01-25",
+  },
+];
+
+export const CommunitiesData: CommunityProps[] = [
+  {
+    avatar: "https://picsum.photos/seed/Awesome+Team/64/64",
+    name: "Awesome Team",
+    id: "1",
+  },
+  {
+    avatar: undefined,
+    name: "Creative Squad",
+    id: "2",
+  },
+  {
+    avatar: "https://picsum.photos/seed/Energetic+Community/64/64",
+    name: "Energetic Community",
+    id: "3",
+  },
+  {
+    avatar: undefined,
+    name: "Dynamic Alliance",
+    id: "4",
+  },
+  {
+    avatar: "https://picsum.photos/seed/Fantastic+Team/64/64",
+    name: "Fantastic Team",
+    id: "5",
+  },
+  {
+    avatar: undefined,
+    name: "Creative Group",
+    id: "6",
+  },
+  {
+    avatar: "https://picsum.photos/seed/Awesome+Alliance/64/64",
+    name: "Awesome Alliance",
+    id: "7",
+  },
+  {
+    avatar: undefined,
+    name: "Energetic Team",
+    id: "8",
+  },
+  {
+    avatar: "https://picsum.photos/seed/Dynamic+Community/64/64",
+    name: "Dynamic Community",
+    id: "9",
+  },
+  {
+    avatar: undefined,
+    name: "Fantastic Squad",
+    id: "10",
   },
 ];
