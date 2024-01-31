@@ -5,8 +5,17 @@ import { CommunitiesData, Threads } from "../utils/dumbydata";
 import PostList from "components/post/PostList";
 import Container from "components/Container";
 import CommunityList from "components/community/CommunityList";
+import { useEffect, useState } from "react";
+import { UseGetThreads } from "utils/connections";
 
 export default function App() {
+  const [threadError, setThreadError] = useState(false);
+  const [threads, setThreads] = useState([]);
+  const [getThreads, { loading: loadingThreads, data: threadData }] =
+    UseGetThreads(setThreads, setThreadError);
+  useEffect(() => {
+    getThreads({ variables: { time: "allTime", popularity: "upVote" } });
+  }, []);
   return (
     <Container flexDir="column">
       <TileCarousel />
@@ -16,7 +25,10 @@ export default function App() {
         </Button>
       </Container>
       <Container>
-        <PostList posts={Threads} maxWidth="80%" />
+        <PostList
+          posts={threadData?.length ? threadData : threads}
+          maxWidth="80%"
+        />
         <CommunityList communities={CommunitiesData} width={"20%"} />
       </Container>
     </Container>
