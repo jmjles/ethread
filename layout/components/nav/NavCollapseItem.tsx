@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Drawer, List } from "react-native-paper";
+import { List } from "react-native-paper";
 import NavItem, { NavItemProps } from "./NavItem";
 
 const NavCollapseItem = ({

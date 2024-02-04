@@ -9,7 +9,7 @@ const Community = ({ avatar, name, id }: CommunityProps) => {
     return tmp[0][0] + tmp[1][0];
   };
   return (
-    <Link href={`community/${id}`}>
+    <Link href={`c/${id}`}>
       <List.Item
         left={
           avatar
