@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { Avatar, Button, Text } from "react-native-paper";
 import { PostUser } from "./types";
 import Container from "components/Container";
+import { formatDate } from "utils/formatters";
 
 const CommentHeader = ({
   user: { avatar, displayName, id, following },
@@ -15,7 +16,7 @@ const CommentHeader = ({
         <Avatar.Image source={{ uri: avatar }} size={32} />
         <Text variant="bodyMedium">
           {displayName}
-          <Text variant="bodySmall"> 9 hrs ago</Text>
+          <Text variant="bodySmall">{formatDate(date)}</Text>
         </Text>
       </Container>
       {!following && (

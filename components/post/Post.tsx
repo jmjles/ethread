@@ -1,13 +1,23 @@
 import React from "react";
-import { Surface, Text } from "react-native-paper";
+import { Text } from "react-native-paper";
 import CommentHeader from "./CommentHeader";
 import ThreadHeader from "./ThreadHeader";
-import PostActions from "./PostActions";
-import { StyleSheet, View } from "react-native";
+import PostActions, { PostActionsProps } from "./PostActions";
+import { StyleSheet } from "react-native";
 import { PostUser } from "./types";
 import Container from "components/Container";
+import { DateTime } from "luxon";
 
-const Post = ({ title, content, user, topic, date, type }: PostProps) => {
+const Post = ({
+  title,
+  content,
+  user,
+  topic,
+  date,
+  type,
+  upVotes,
+  downVotes,
+}: PostProps) => {
   return (
     <Container flexDir="column" style={styles.container}>
       {type === "thread" ? (
@@ -16,10 +26,16 @@ const Post = ({ title, content, user, topic, date, type }: PostProps) => {
         <CommentHeader user={user} date={date} />
       )}
       <Container noFlex flexDir="column" style={styles.contentContainer}>
-        <Text variant="headlineMedium">{title}</Text>
-        <Text variant="bodyLarge">{content}</Text>
+        {type === "thread" ? (
+          <>
+            <Text variant="headlineMedium">{title}</Text>
+            <Text variant="bodyLarge">{content}</Text>
+          </>
+        ) : (
+          <Text variant="bodyMedium">{content}</Text>
+        )}
       </Container>
-      <PostActions />
+      <PostActions upVotes={upVotes} downVotes={downVotes} />
     </Container>
   );
 };
@@ -32,7 +48,7 @@ export type PostProps = {
   img?: string;
   topic: string;
   date: string;
-};
+} & PostActionsProps;
 
 const styles = StyleSheet.create({
   container: {

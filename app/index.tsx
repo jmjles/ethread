@@ -1,7 +1,7 @@
-import { Button, Surface, Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import TileCarousel from "../components/tile/TileCarousel";
-import { StyleSheet, View } from "react-native";
-import { CommunitiesData, Threads } from "../utils/dumbydata";
+import { StyleSheet } from "react-native";
+import { CommunitiesData } from "../utils/dumbydata";
 import PostList from "components/post/PostList";
 import Container from "components/Container";
 import CommunityList from "components/community/CommunityList";

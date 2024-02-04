@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Avatar, Button, Text } from "react-native-paper";
 import { PostUser } from "./types";
 import Container from "components/Container";
+import { formatDate } from "utils/formatters";
 
 const ThreadHeader = ({
   user: { displayName, avatar },
@@ -19,7 +20,7 @@ const ThreadHeader = ({
         />
         <View>
           <Text variant="bodyMedium">
-            r/{topic} <Text variant="bodySmall">{date}</Text>
+            r/{topic} <Text variant="bodySmall">{formatDate(date)}</Text>
           </Text>
           <Text>{displayName}</Text>
         </View>

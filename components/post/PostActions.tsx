@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Icon, SegmentedButtons, Text } from "react-native-paper";
 
-const PostActions = () => {
+const PostActions = ({ upVotes, downVotes }: PostActionsProps) => {
   const commentOutline = "message-reply-outline";
   const downOutline = "arrow-down-bold-outline";
   const downBold = "arrow-down-bold";
@@ -54,7 +54,11 @@ const PostActions = () => {
         value={upVote ? "upvote" : upVote === null ? "" : "downvote"}
         buttons={[
           { icon: upVoteIcon, value: "upvote" },
-          { label: "34k", value: "", disabled: true },
+          {
+            label: `${upVotes.length - downVotes.length}`,
+            value: "",
+            disabled: true,
+          },
           { icon: downVoteIcon, value: "downvote" },
         ]}
       />
@@ -86,6 +90,10 @@ const PostActions = () => {
       </Button>
     </Container>
   );
+};
+export type PostActionsProps = {
+  upVotes: string[];
+  downVotes: string[];
 };
 const styles = StyleSheet.create({
   ButtonC: {
