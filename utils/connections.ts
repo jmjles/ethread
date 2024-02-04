@@ -14,13 +14,9 @@ export const UseGetThreads = (
 ): Returns => {
   const [getThreads, { loading, error, data }] = useLazyQuery(getThreadsQuery, {
     onCompleted: (data) => {
-      console.log(data);
       setData(data.getThreads);
     },
     onError: (er) => {
-      console.log("in");
-      console.log(er);
-      console.log(data);
       setError(true);
     },
   });

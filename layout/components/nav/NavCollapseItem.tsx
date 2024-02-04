@@ -12,7 +12,6 @@ const NavCollapseItem = ({
   const [expanded, setExpanded] = useState(false);
   const toggleOpen = () => {
     setExpanded((p) => !p);
-    console.log("in");
   };
   return (
     <List.Accordion
