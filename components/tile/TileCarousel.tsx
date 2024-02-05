@@ -4,6 +4,7 @@ import { threadPosts } from "../../utils/dumbydata";
 import Tile from "./Tile";
 import { useEffect, useRef, useState } from "react";
 import { FAB } from "react-native-paper";
+import { router } from "expo-router";
 
 const FeaturedTiles = () => {
   const [active, setActive] = useState(0);
@@ -15,7 +16,7 @@ const FeaturedTiles = () => {
   Dimensions.addEventListener("change", ({ window: { width } }) => {
     setSliderWidth(getWidth(width));
   });
-  
+
   const carousel = useRef<any>();
   const handleNav = (next: boolean) => {
     if (next) {
@@ -27,6 +28,9 @@ const FeaturedTiles = () => {
   useEffect(() => {
     carousel.current.snapToItem(active);
   }, [active]);
+  const handleTile = (link: string) => {
+    router.navigate(link);
+  };
   return (
     <View style={styles.container}>
       <Carousel
@@ -40,7 +44,9 @@ const FeaturedTiles = () => {
         activeSlideAlignment="start"
         inactiveSlideOpacity={1}
         ref={carousel}
-        renderItem={({ item }) => <Tile {...item} onPress={() => {}} />}
+        renderItem={({ item }) => (
+          <Tile {...item} onPress={() => handleTile(`t/${item.topic}`)} />
+        )}
       />
       <FAB
         icon="chevron-left"
