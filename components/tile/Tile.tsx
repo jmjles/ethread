@@ -1,13 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Image, Pressable } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { Icon, Text, TouchableRipple } from "react-native-paper";
 
 const Tile = ({ title, subtitle, img, topic, topics, onPress }: Props) => {
   return (
-    <TouchableRipple
-      style={styles.container}
-      onPress={onPress}
-    >
+    <TouchableRipple style={styles.container} onPress={onPress}>
       <View>
         <Image source={{ uri: img }} style={styles.img} />
         <View style={styles.content}>
@@ -25,6 +22,7 @@ const Tile = ({ title, subtitle, img, topic, topics, onPress }: Props) => {
             ellipsizeMode="tail"
             numberOfLines={1}
             suppressHighlighting
+            style={styles.text}
           >
             {subtitle}
           </Text>
@@ -32,10 +30,20 @@ const Tile = ({ title, subtitle, img, topic, topics, onPress }: Props) => {
             <View style={styles.icon}>
               <Icon size={24} color="black" source="bullhorn-outline" />
             </View>
-            <Text variant="bodyMedium" style={styles.tag} suppressHighlighting>
-              r/{topic}
+            <Text
+              variant="bodyMedium"
+              style={[styles.tag, styles.text]}
+              suppressHighlighting
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              t/{topic}
               {topics && (
-                <Text variant="labelSmall" suppressHighlighting>
+                <Text
+                  variant="labelSmall"
+                  suppressHighlighting
+                  style={styles.text}
+                >
                   {" "}
                   and more
                 </Text>
@@ -66,7 +74,12 @@ const styles = StyleSheet.create({
     left: 20,
     width: 260,
     overflow: "hidden",
+    backgroundColor: "rgba(0, 0, 0, 0.09)",
+    padding: 5,
+    borderRadius: 5,
+    maxWidth: "85%",
   },
+  text: { color: "#FFF" },
   title: {
     fontWeight: "600",
     color: "#FFF",
