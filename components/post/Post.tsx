@@ -6,7 +6,6 @@ import PostActions, { PostActionsProps } from "./PostActions";
 import { StyleSheet } from "react-native";
 import { PostUser } from "./types";
 import Container from "components/Container";
-import { DateTime } from "luxon";
 
 const Post = ({
   title,
@@ -17,23 +16,31 @@ const Post = ({
   type,
   upVotes,
   downVotes,
+  displayFull,
 }: PostProps) => {
+  
+  const Header = () => {
+    if (type === "comment") return <CommentHeader user={user} date={date} />;
+    return <ThreadHeader user={user} topic={topic} date={date} />;
+  };
+
+  const Content = () => {
+    if (type === "comment") return <Text variant="bodyMedium">{content}</Text>;
+    if (displayFull)
+      return (
+        <>
+          <Text variant="headlineMedium">{title}</Text>
+          <Text variant="bodyLarge">{content}</Text>
+        </>
+      );
+    return <Text variant="headlineMedium">{title}</Text>;
+  };
+
   return (
     <Container flexDir="column" style={styles.container}>
-      {type === "thread" ? (
-        <ThreadHeader user={user} topic={topic} date={date} />
-      ) : (
-        <CommentHeader user={user} date={date} />
-      )}
+      <Header />
       <Container noFlex flexDir="column" style={styles.contentContainer}>
-        {type === "thread" ? (
-          <>
-            <Text variant="headlineMedium">{title}</Text>
-            <Text variant="bodyLarge">{content}</Text>
-          </>
-        ) : (
-          <Text variant="bodyMedium">{content}</Text>
-        )}
+        <Content />
       </Container>
       <PostActions upVotes={upVotes} downVotes={downVotes} />
     </Container>
@@ -48,6 +55,7 @@ export type PostProps = {
   img?: string;
   topic: string;
   date: string;
+  displayFull?: Boolean;
 } & PostActionsProps;
 
 const styles = StyleSheet.create({
