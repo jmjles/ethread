@@ -8,7 +8,7 @@ const Category = () => {
   const [notFound, setNotFound] = useState(false);
   const Content = () =>
     notFound ? (
-      <NotFound type="community" value={id} />
+      <NotFound type="category" value={id} />
     ) : (
       <Container>{id}</Container>
     );

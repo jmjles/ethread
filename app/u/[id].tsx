@@ -9,7 +9,7 @@ const User = () => {
 
   const Content = () =>
     notFound ? (
-      <NotFound type="community" value={id} />
+      <NotFound type="user" value={id} />
     ) : (
       <Container>{id}</Container>
     );

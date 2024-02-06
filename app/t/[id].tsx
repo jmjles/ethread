@@ -8,7 +8,7 @@ const Thread = () => {
   const [notFound, setNotFound] = useState(false);
   const Content = () =>
     notFound ? (
-      <NotFound type="community" value={id} />
+      <NotFound type="thread" value={id} />
     ) : (
       <Container>{id}</Container>
     );
