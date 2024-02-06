@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     maxWidth: 1400,
+    minWidth: "80%",
   },
 });
 type Props = React.PropsWithChildren & SearchbarProps;

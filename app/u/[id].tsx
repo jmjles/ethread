@@ -3,9 +3,10 @@ import NotFound from "components/NotFound";
 import { useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 
-const Thread = () => {
+const User = () => {
   const { id } = useLocalSearchParams();
   const [notFound, setNotFound] = useState(false);
+
   const Content = () =>
     notFound ? (
       <NotFound type="community" value={id} />
@@ -19,4 +20,4 @@ const Thread = () => {
   );
 };
 
-export default Thread;
+export default User;
